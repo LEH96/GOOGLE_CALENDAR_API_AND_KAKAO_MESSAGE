@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Java Demo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        function REST_Call (path)
+        {
+            $.ajax({
+                type: "GET",
+                url: path,
+                success: (data) => { console.log(data); $('#contents').html(data); }
+            });
+        }
+    </script>
+</head>
+<body>
+ 
+<textarea id="contents" rows='20' cols='100'></textarea><br/>  
+
+<a href="/authorize"> <h2> 친구목록 조회와 메세지 발송 권한 획득</h2></a><br/>
+<button onclick="REST_Call('/message')">나에게 메시지 발송 </button><br/>
+
+<div>
+    <button onclick='location.href="/calendar"'>
+        <img src="https://www.getharvest.com/hs-fs/hubfs/integrations-new/google-calendar.png?width=300&name=google-calendar.png" width="40" class="mb-1">
+    </button>
+    <div>캘린더<br>일정추가</div>
+</div>
+</body>
+</html>
